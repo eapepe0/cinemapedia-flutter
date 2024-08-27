@@ -1,3 +1,4 @@
+// lib\presentation\providers\movies\movies_providers.dart
 
 import 'package:cinemapedia/domain/entities/movie.dart';
 import 'package:cinemapedia/presentation/providers/movies/movies_repository_provider.dart';

@@ -1,3 +1,10 @@
+// lib\domain\entities\movie.dart
+
+// Definimos una entidad Movie , que representa una pelicula en el Dominio
+//
+// La entidad no tiene metodos , se usa como una estructura de datos para 
+// representar una pelicula en la aplicacion
+//
 
 class Movie {
   final bool adult;

@@ -1,3 +1,4 @@
+// lib\infrastructure\models\moviesdb\movie_result_moviedb.dart
 class MovieResultMovieDB {
     final bool adult;
     final String backdropPath;
