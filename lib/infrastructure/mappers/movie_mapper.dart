@@ -1,5 +1,12 @@
 // lib\infrastructure\mappers\movie_mapper.dart
 
+//
+//  Es una clase que se encarga de convertir objetos MovieResultMovieDB devueltos por la API 
+// de The Movie Database (TMDB) en objetos Movie que se pueden utilizar en la aplicación.
+// 
+// Esta extraido por la pagina https://app.quicktype.io/
+
+
 import 'package:cinemapedia/domain/entities/movie.dart';
 import 'package:cinemapedia/infrastructure/models/moviesdb/movie_result_moviedb.dart';
 

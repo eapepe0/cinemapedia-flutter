@@ -1,5 +1,15 @@
 // lib\infrastructure\models\moviesdb\moviedb_response.dart
 
+//
+//  La clase MovieDbResponse representa un objeto que tiene 
+// la informacion devuelta por la API de The Movie Database (TMDB)
+//
+//
+// Esta creada por la pagina https://app.quicktype.io/
+//
+// en esta dividimos la clase en 2 , una clase la respuesta moviedb_response y otra el resultado movie_result_moviedb
+
+
 import 'package:cinemapedia/infrastructure/models/moviesdb/movie_result_moviedb.dart';
 
 class MovieDbResponse {
