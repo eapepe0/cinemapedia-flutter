@@ -59,7 +59,8 @@ class _MovieHorizontalListviewState extends State<MovieHorizontalListview> {
             widget.subTitle != null) // si existe un titulo y un subtitulo
           _Title(
               title: widget.title,
-              subTitle: widget.subTitle), // mostramos en cine y el boton con la fecha
+              subTitle: widget.subTitle
+          ), // mostramos en cine y el boton con la fecha
         Expanded(
             child: ListView.builder(
               controller: scrollController,
