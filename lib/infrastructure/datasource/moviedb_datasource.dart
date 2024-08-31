@@ -38,7 +38,10 @@ class MoviedbDatasource extends MoviesDatasource{
 
   // metodo
   Future<List<Movie>> getNowPlaying({int page = 1}) async{
-    final response = await dio.get('/movie/now_playing');  // hacemos la llamada a la url 
+    final response = await dio.get('/movie/now_playing',
+    queryParameters: {
+      'page': page
+    });  // hacemos la llamada a la url 
 
     // convertimos la respuesta JSON en un MovieDbResponse
     //  que es una lista de movies , los resultados , las paginas

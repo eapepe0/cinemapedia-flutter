@@ -39,16 +39,20 @@ class _HomeViewState extends ConsumerState<_HomeView> {
   @override
   Widget build(BuildContext context) {
 
-    final nowPlayingMovies = ref.watch(nowPlayingMoviesProvider);
-    final nowSixPlayingMovies = ref.watch(moviesSlideshowProvider);
+    final nowPlayingMovies = ref.watch(nowPlayingMoviesProvider); // lista de Movies que estan en cartelera
+    final nowSixPlayingMovies = ref.watch(moviesSlideshowProvider); // lista de seis Peliculas que estan en cartelera
+
     return Column(
       children: [
-      const CustomAppBar(),
-      MoviesSlideshow(movies: nowSixPlayingMovies),
+      const CustomAppBar(), // barra de abajo
+      MoviesSlideshow(movies: nowSixPlayingMovies), //  1er slideshow 
+      // en cines
       MovieHorizontalListview(
         movies: nowPlayingMovies,
         title: "En cines",
         subTitle: "Viernes 30",
+        loadNextPage: ()=> ref.read(nowPlayingMoviesProvider.notifier).loadNextPage(),
+        // le pasamos la funcion loadNextpage del provider nowPlayingMovies
       )
 
       /* Expanded(
