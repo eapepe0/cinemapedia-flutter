@@ -2,6 +2,7 @@
 import 'package:cinemapedia/config/router/app_router.dart';
 import 'package:cinemapedia/config/themes/app_theme.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter/rendering.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -9,6 +10,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 Future  main() async{
   await dotenv.load(fileName: '.env');
+    //debugPaintSizeEnabled=true;
   runApp(
     const ProviderScope(child: MainApp())
   );
