@@ -2,6 +2,7 @@
 
 import 'package:cinemapedia/presentation/providers/movies/movies_providers.dart';
 import 'package:cinemapedia/presentation/providers/movies/movies_slideshow_provider.dart';
+import 'package:cinemapedia/presentation/providers/providers.dart';
 import 'package:cinemapedia/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -43,15 +44,15 @@ class _HomeViewState extends ConsumerState<_HomeView> {
   @override
   Widget build(BuildContext context) {
 
+    final initialLoading = ref.watch(initialLoadingProvider); // si devuelve true es por que no terminaron de cargar los providers
+
+    if(initialLoading) return const FullScreenLoader(); // si esta en true mostramos el loader
+
     final nowPlayingMovies = ref.watch(nowPlayingMoviesProvider); // lista de Movies que estan en cartelera
     final nowSixPlayingMovies = ref.watch(moviesSlideshowProvider); // lista de seis Peliculas que estan en cartelera
     final popularMovies = ref.watch(popularMoviesProvider); // lista de peliculas que estan en popular movies
     final topMovies = ref.watch(topRatedMoviesProvider); // lista de peliculas que estan en top movies
     final upcomingMovies = ref.watch(upcomingMoviesProvider); // lista de peliculas que se estrenaran proximamente
-
-    // SingleChildScrollView es un widget de Flutter que permite a los usuarios 
-    // desplazarse verticalmente o horizontalmente a través de un contenido que es más grande 
-    //que el espacio disponible en la pantalla.
 
 
 
