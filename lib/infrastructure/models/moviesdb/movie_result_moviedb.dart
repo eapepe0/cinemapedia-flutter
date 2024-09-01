@@ -48,7 +48,7 @@ class MovieResultMovieDB {
         genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
         id: json["id"],
         originalLanguage:json["original_language"],
-        originalTitle: json["original_title"],
+        originalTitle: json["original_title"] ?? '',
         overview: json["overview"] ?? '',
         popularity: json["popularity"]?.toDouble(),
         posterPath: json["poster_path"] ?? '',

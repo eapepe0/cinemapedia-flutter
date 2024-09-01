@@ -21,5 +21,14 @@ import 'package:cinemapedia/domain/entities/movie.dart';
 abstract class MoviesDatasource {
   // metodo : devuelve una lista de peliculas en cartelera
   Future <List<Movie>> getNowPlaying({ int page = 1 });
+
+  // devuelve una lista de peliculas populares
+  Future <List<Movie>> getPopular({ int page = 1 });
+
+  // devuelve una lista de peliculas mejor puntuadas
+  Future <List<Movie>> getTopRated({ int page = 1 });
+
+  // devuelve una lista de peliculas proximas a estrenarse
+  Future <List<Movie>> getUpcoming({ int page = 1 });
 }
 

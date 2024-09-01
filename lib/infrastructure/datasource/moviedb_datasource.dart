@@ -33,19 +33,11 @@ class MoviedbDatasource extends MoviesDatasource{
     )
   );
 
-
-  @override
-
-  // metodo
-  Future<List<Movie>> getNowPlaying({int page = 1}) async{
-    final response = await dio.get('/movie/now_playing',
-    queryParameters: {
-      'page': page
-    });  // hacemos la llamada a la url 
-
+  // devuelve una lista de Movie , recibe un map de String y dynamic que llamaremos json
+  List<Movie> _jsonToMovies(Map<String,dynamic> json){
     // convertimos la respuesta JSON en un MovieDbResponse
     //  que es una lista de movies , los resultados , las paginas
-    final movieDBResponse = MovieDbResponse.fromJson(response.data); 
+    final movieDBResponse = MovieDbResponse.fromJson(json); 
 
     // una List (Lista) de la entidad Movie se guardaria el resultado de movieDBResponse
     final List<Movie> movies = movieDBResponse.results
@@ -57,6 +49,51 @@ class MoviedbDatasource extends MoviesDatasource{
 
 
    return movies; // devolvemos movies que es una lista de movies
+  }
+
+  @override
+
+  // metodo
+  Future<List<Movie>> getNowPlaying({int page = 1}) async{
+    final response = await dio.get('/movie/now_playing',
+    queryParameters: {
+      'page': page
+    });  // hacemos la llamada a la url 
+
+
+    return _jsonToMovies(response.data);
+   
+  }
+
+  @override
+
+  Future<List<Movie>> getPopular({int page = 1}) async{
+    final response = await dio.get('/movie/popular',
+    queryParameters: {
+      'page': page
+    });  // hacemos la llamada a la url 
+
+    return _jsonToMovies(response.data);
+  }
+  
+  @override
+  Future<List<Movie>> getTopRated({int page = 1}) async{
+    final response = await dio.get('/movie/top_rated',
+    queryParameters: {
+      'page': page
+    });  // hacemos la llamada a la url 
+
+    return _jsonToMovies(response.data);
+  }
+  
+  @override
+  Future<List<Movie>> getUpcoming({int page = 1}) async{
+     final response = await dio.get('/movie/upcoming',
+    queryParameters: {
+      'page': page
+    });  // hacemos la llamada a la url 
+
+    return _jsonToMovies(response.data);
   }
 
 

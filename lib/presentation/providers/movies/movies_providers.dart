@@ -24,6 +24,37 @@ final nowPlayingMoviesProvider = StateNotifierProvider<MoviesNotifier, List<Movi
 });
 
 
+// es un statenotifierProvider que maneja las peliculas populares
+final popularMoviesProvider = StateNotifierProvider<MoviesNotifier, List<Movie>>((ref){
+
+  final fetchMoreMovies = ref.watch(movieRepositoryProvider).getPopular;
+
+  // El constructor de MoviesNotifier recibe el callback fetchMoreMovies 
+  // como parámetro y lo utiliza para inicializar la propiedad correspondiente.
+  return MoviesNotifier(fetchMoreMovies: fetchMoreMovies);
+});
+
+
+// es un statenotifierProvider que maneja las peliculas populares
+final topRatedMoviesProvider = StateNotifierProvider<MoviesNotifier, List<Movie>>((ref){
+
+  final fetchMoreMovies = ref.watch(movieRepositoryProvider).getTopRated;
+
+  // El constructor de MoviesNotifier recibe el callback fetchMoreMovies 
+  // como parámetro y lo utiliza para inicializar la propiedad correspondiente.
+  return MoviesNotifier(fetchMoreMovies: fetchMoreMovies);
+});
+
+// es un statenotifierProvider que maneja las peliculas populares
+final upcomingMoviesProvider = StateNotifierProvider<MoviesNotifier, List<Movie>>((ref){
+
+  final fetchMoreMovies = ref.watch(movieRepositoryProvider).getUpcoming;
+
+  // El constructor de MoviesNotifier recibe el callback fetchMoreMovies 
+  // como parámetro y lo utiliza para inicializar la propiedad correspondiente.
+  return MoviesNotifier(fetchMoreMovies: fetchMoreMovies);
+});
+
 
 typedef MovieCallback = Future<List<Movie>> Function({ int page});
 
